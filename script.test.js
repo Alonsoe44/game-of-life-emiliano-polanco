@@ -5,6 +5,9 @@ const boxSize = 10;
 const domCanvas = document.querySelector(".game-view-port");
 const context = domCanvas.getContext("2d");
 
+domCanvas.width = colsNumber * boxSize;
+domCanvas.heigth = rowsNumber * boxSize;
+
 context.beginPath();
 context.lineWidth = 0.05;
 
