@@ -1,4 +1,5 @@
 const rowsNumber = 20;
+
 const colsNumber = 20;
 const boxSize = 10;
 
