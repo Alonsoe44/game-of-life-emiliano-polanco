@@ -2,18 +2,6 @@ const rowsNumber = 20;
 const colsNumber = 20;
 const boxSize = 10;
 
-const domCanvas = document.querySelector(".game-view-port");
-const context = domCanvas.getContext("2d");
-domCanvas.width = colsNumber * boxSize;
-domCanvas.height = rowsNumber * boxSize;
-
-context.beginPath();
-context.lineWidth = 0.05;
-
-context.arc(100, 50, 50, 0, Math.PI * 2);
-context.closePath();
-context.stroke();
-
 const create2dArray = (rows, colums) => {
   const array2d = [];
 
@@ -26,20 +14,23 @@ const create2dArray = (rows, colums) => {
   return array2d;
 };
 
-console.table(create2dArray(rowsNumber, colsNumber));
-
-describe("Given a getApplesFirstPosition function", () => {
-  describe("When it receives an array with melons and apples", () => {
-    test("Then it should return position 1", () => {
+describe("Given a create2dArray function", () => {
+  describe("When it receives a 3 as first parameter and second one", () => {
+    test("Then it should return a 2d array with false", () => {
       // Arrange
-      const fruits = ["melons", "apples"];
-      const expectedPosition = 1;
+      const numberOfRows = 3;
+      const numbersOfColumns = 3;
+      const expected2dArray = [
+        [false, false, false],
+        [false, false, false],
+        [false, false, false],
+      ];
 
       // Act
-      const applesPosition = getApplesFirstPosition(fruits);
+      const array2dCreated = create2dArray(numberOfRows, numbersOfColumns);
 
       // Assert
-      expect(applesPosition).toBe(expectedPosition);
+      expect(array2dCreated).toEqual(expected2dArray);
     });
   });
 });
