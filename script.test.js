@@ -18,9 +18,9 @@ context.stroke();
 const create2dArray = (rows, colums) => {
   const array2d = [];
 
-  for (let i = 0; i < rows; i++) {
+  for (let i = 0; i < colums; i++) {
     array2d[i] = [];
-    for (let j = 0; j < colums; j++) {
+    for (let j = 0; j < rows; j++) {
       array2d[i][j] = false;
     }
   }
