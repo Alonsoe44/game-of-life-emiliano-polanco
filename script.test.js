@@ -2,6 +2,16 @@ const rowsNumber = 20;
 const colsNumber = 20;
 const boxSize = 10;
 
+const domCanvas = document.querySelector(".game-view-port");
+const context = domCanvas.getContext("2d");
+
+context.beginPath();
+context.lineWidth = 0.05;
+
+context.arc(100, 50, 50, 0, Math.PI * 2);
+context.closePath();
+context.stroke();
+
 const create2dArray = (rows, colums) => {
   const array2d = [];
 
