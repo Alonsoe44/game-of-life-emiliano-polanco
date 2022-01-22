@@ -11,9 +11,9 @@ const lookRightUp = (x, y, board) =>
 const lookRightDown = (x, y, board) =>
   typeof board[x + 1] === "undefined" ? false : board[x + 1][y - 1];
 const lookLeftUp = (x, y, board) =>
-  board[x - 1] === "undefined" ? false : board[x - 1][y + 1];
+  typeof board[x - 1] === "undefined" ? false : board[x - 1][y + 1];
 const lookLeftDown = (x, y, board) =>
-  board[x - 1] === "undefined" ? false : board[x - 1][y - 1];
+  typeof board[x - 1] === "undefined" ? false : board[x - 1][y - 1];
 
 const neighborDetectorFunctions = [
   lookRight,
@@ -26,11 +26,6 @@ const neighborDetectorFunctions = [
   lookLeftDown,
 ];
 
-const buardo = [
-  [true, false, true],
-  [false, false, true],
-  [true, false, true],
-];
 const neighborCounter = (x, y, board) => {
   let totalNeighbors = 0;
   for (const simpleFunction of neighborDetectorFunctions) {
@@ -41,7 +36,8 @@ const neighborCounter = (x, y, board) => {
   return totalNeighbors;
 };
 
-console.log(neighborCounter(2, 0, buardo));
-
 module.exports.neighborDetectorFunctions = neighborDetectorFunctions;
 module.exports.neighborCounter = neighborCounter;
+
+/* export default neighborCounter;
+ */
