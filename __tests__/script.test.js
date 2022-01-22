@@ -1,8 +1,9 @@
-const mainFunctions = require("../main");
+const neighborFunctions = require("../dist/neighbor-detector");
+const mainFunctions = require("../dist/main");
 
 const create2dArray = mainFunctions.creade2dArray;
-
-const [lookRight, , , lookDown] = mainFunctions.neighborDetectorFunctions;
+const [lookRight, , , lookDown] = neighborFunctions.neighborDetectorFunctions;
+const { neighborCounter } = neighborFunctions;
 
 describe("Given a create2dArray function", () => {
   describe("When it receives a 3 as first parameter and second one", () => {
@@ -88,6 +89,40 @@ describe("Given a lookDown function", () => {
 
       console.table();
       expect(functionReply).toBe(expectedOutput);
+    });
+  });
+});
+describe("Given a neightbotCounter function", () => {
+  describe("When it receives a 1 as first parameter, a 1 as second one and a 3x3 array with 3 adjacents trues as last parameter", () => {
+    test("Then it should return a 3", () => {
+      const x = 1;
+      const y = 1;
+      const expected2dArray = [
+        [true, false, false],
+        [false, false, true],
+        [true, false, false],
+      ];
+      const expectedNumberOfNeighbors = 3;
+
+      const numberOfNeighbors = neighborCounter(x, y, expected2dArray);
+
+      expect(numberOfNeighbors).toBe(expectedNumberOfNeighbors);
+    });
+  });
+  describe("When it receives a 2 as first parameter, a 2 as second one and a 3x3 array with 2 adjacents trues as last parameter", () => {
+    test("Then it should return a 3", () => {
+      const x = 2;
+      const y = 2;
+      const expected2dArray = [
+        [true, false, false],
+        [false, false, true],
+        [true, true, false],
+      ];
+      const expectedNumberOfNeighbors = 2;
+
+      const numberOfNeighbors = neighborCounter(x, y, expected2dArray);
+
+      expect(numberOfNeighbors).toBe(expectedNumberOfNeighbors);
     });
   });
 });
