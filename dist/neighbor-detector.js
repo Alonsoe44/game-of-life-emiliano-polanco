@@ -36,8 +36,7 @@ const neighborCounter = (x, y, board) => {
   return totalNeighbors;
 };
 
-/* export default neighborCounter;
- */
+// export default neighborCounter;
 
 module.exports.neighborDetectorFunctions = neighborDetectorFunctions;
 module.exports.neighborCounter = neighborCounter;
