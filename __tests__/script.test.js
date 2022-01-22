@@ -1,6 +1,7 @@
 const neighborFunctions = require("../dist/neighbor-detector");
 const mainFunctions = require("../dist/main");
 
+const { traverse2dArray } = mainFunctions;
 const create2dArray = mainFunctions.creade2dArray;
 const [lookRight, , , lookDown] = neighborFunctions.neighborDetectorFunctions;
 const { neighborCounter } = neighborFunctions;
@@ -123,6 +124,67 @@ describe("Given a neightbotCounter function", () => {
       const numberOfNeighbors = neighborCounter(x, y, expected2dArray);
 
       expect(numberOfNeighbors).toBe(expectedNumberOfNeighbors);
+    });
+  });
+});
+
+describe("Given a traverse2dArray function", () => {
+  describe("When it receives a 3x3 array with I pattern of trues", () => {
+    test("Then it should return a 3x3 array with a line pattern of trues", () => {
+      const userArrayPattern = [
+        [false, true, false],
+        [false, true, false],
+        [false, true, false],
+      ];
+      const expectedArrayPattern = [
+        [false, false, false],
+        [true, true, true],
+        [false, false, false],
+      ];
+
+      const traversedArray = traverse2dArray(userArrayPattern);
+
+      expect(traversedArray).toEqual(expectedArrayPattern);
+    });
+  });
+  describe("When it receives a 3x3 array with box pattern of trues", () => {
+    test("Then it should return a 3x3 array with a box pattern of trues", () => {
+      const userArrayPattern = [
+        [true, true, false],
+        [true, true, false],
+        [false, false, false],
+      ];
+      const expectedArrayPattern = [
+        [true, true, false],
+        [true, true, false],
+        [false, false, false],
+      ];
+
+      const traversedArray = traverse2dArray(userArrayPattern);
+
+      expect(traversedArray).toEqual(expectedArrayPattern);
+    });
+  });
+  describe("When it receives a 4x4 array with an strange pattern of trues", () => {
+    test("Then it should return a 4x4 array with an stange pattern of trues", () => {
+      const userArrayPattern = [
+        [false, false, false, false],
+        [false, true, true, false],
+        [false, true, true, false],
+        [false, true, true, false],
+        [false, false, false, false],
+      ];
+      const expectedArrayPattern = [
+        [false, false, false, false],
+        [false, true, true, false],
+        [true, false, false, true],
+        [false, true, true, false],
+        [false, false, false, false],
+      ];
+
+      const traversedArray = traverse2dArray(userArrayPattern);
+
+      expect(traversedArray).toEqual(expectedArrayPattern);
     });
   });
 });
