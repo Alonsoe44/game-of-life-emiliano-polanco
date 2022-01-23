@@ -1,25 +1,29 @@
-/* eslint-disable import/extensions */
-import {
-  constantColumns,
-  constantRows,
-  constantBoxSize,
-  constantPrimaryColor,
-  constantDeadColor,
-} from "./constants.js";
-
 class BoardPencil {
   myCanvas;
   context;
   arrayBoard;
-  numberOfColumns = constantColumns;
-  numberOfRows = constantRows;
-  boxsize = constantBoxSize;
-  primaryColor = constantPrimaryColor;
-  deadColor = constantDeadColor;
-  constructor(canvas, gameArray) {
+  numberOfColumns;
+  numberOfRows;
+  boxsize;
+  primaryColor;
+  deadColor;
+  constructor(
+    canvas,
+    gameArray,
+    columns,
+    rows,
+    boxsize,
+    aliveColor,
+    deadColor
+  ) {
     this.myCanvas = canvas;
     this.arrayBoard = gameArray;
     this.context = this.myCanvas.getContext("2d");
+    this.numberOfColumns = columns;
+    this.numberOfRows = rows;
+    this.boxsize = boxsize;
+    this.primaryColor = aliveColor;
+    this.deadColor = deadColor;
     this.myCanvas.width = this.numberOfColumns * this.boxsize;
     this.myCanvas.height = this.numberOfRows * this.boxsize;
   }

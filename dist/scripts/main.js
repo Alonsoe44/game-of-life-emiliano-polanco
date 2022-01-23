@@ -41,13 +41,39 @@ const selectReviveCell = (x, y, table, pencil) => {
   }
 };
 
+// creationWelcomeCanvas
+const welcomeBoxSize = 5;
+const welcomeColumns = size.width / welcomeBoxSize + 1;
+const welcomeRows = size.height / welcomeBoxSize + 1;
+const welcomeAliveColor = "#3C787E";
+const welcomeDeadColor = "#D0CD94";
+let welcomeArray = create2dArray(welcomeRows, welcomeColumns);
+const welcomeCanvas = document.querySelector(".canvas--screen");
+const welcomePencil = new BoardPencil(
+  welcomeCanvas,
+  welcomeArray,
+  welcomeColumns,
+  welcomeRows,
+  welcomeBoxSize,
+  welcomeAliveColor,
+  welcomeDeadColor
+);
+
+welcomePencil.drawBoard(welcomeArray);
+
 // Execution
 
 let gameArray = create2dArray(constantRows, constantColumns);
-console.table(gameArray);
-
-const mainCanvas = document.querySelector(".game-view-port");
-const myPencil = new BoardPencil(mainCanvas, gameArray);
+const mainCanvas = document.querySelector(".canvas--user");
+const myPencil = new BoardPencil(
+  mainCanvas,
+  gameArray,
+  constantColumns,
+  constantRows,
+  constantBoxSize,
+  constantPrimaryColor,
+  constantDeadColor
+);
 myPencil.drawBoard(gameArray);
 // Event listeners
 
@@ -67,6 +93,8 @@ window.addEventListener("mousemove", (event) => {
 
 window.addEventListener("click", () => {
   selectReviveCell(mouse.x, mouse.y, gameArray, myPencil);
+
+  welcomeArray = create2dArray(welcomeRows, welcomeColumns);
   if (gameArray[mouse.y][mouse.x] === true) {
     gameArray[mouse.y][mouse.x] = false;
   } else {
@@ -74,22 +102,23 @@ window.addEventListener("click", () => {
   }
 });
 
-// tick function
 const initialTime = Date.now();
-let iterationTime = 1000;
+let iterationTime = 0;
+
 const tick = () => {
   const timePassed = Date.now() - initialTime;
   if (timePassed > iterationTime) {
-    iterationTime += 1000;
+    iterationTime += 100;
+    welcomeArray = traverse2dArray(welcomeArray);
     gameArray = traverse2dArray(gameArray);
     myPencil.drawBoard(gameArray);
+    welcomePencil.drawBoard(welcomeArray);
     console.log("magic");
   }
-
   requestAnimationFrame(tick);
 };
 
-tick();
+// tick();
 
 /* module.exports.creade2dArray = create2dArray;
 module.exports.traverse2dArray = traverse2dArray; */
