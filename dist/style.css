@@ -5,19 +5,22 @@
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-family: "Mada", sans-serif;
 }
 
 .global-container {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   overflow-x: hidden;
+  background-color: #fbf7b9;
 }
 
 .big-container {
-  width: 100vw;
+  height: 100vh;
   border: none;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .canvas--screen {
@@ -36,6 +39,57 @@ body {
 
 .big-container--information {
   display: flex;
-  background-color: #d0cd94;
-  justify-content: center;
+  position: relative;
+  background-color: #fbf7b9;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.information-game__paragraph {
+  width: 20rem;
+  font-weight: 100;
+  color: #15595f;
+}
+
+.information-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+}
+
+.text-group {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18rem;
+}
+.information-game__button {
+  width: 7rem;
+  height: 3rem;
+  background: none;
+  border: none;
+  background-color: #b3ae6e;
+  color: white;
+}
+
+.information-game__button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .big-container--information {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .canvas--user {
+    margin-top: 100px;
+  }
+  .information-game__button {
+    margin-top: 100px;
+  }
 }
