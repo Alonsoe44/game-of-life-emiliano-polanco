@@ -5,19 +5,20 @@
 }
 
 body {
-  background-color: purple;
+  background-color: white;
 }
 
-.center {
+.big-container {
   display: flex;
-  position: absolute;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  border: none;
 }
+
 .game-view-port {
-  background-color: white;
-  border: 0.3rem solid black;
+  background-color: black;
+  border: none;
 }
