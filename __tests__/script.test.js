@@ -1,4 +1,4 @@
-const neighborFunctions = require("../dist/neighbor-detector");
+/* const neighborFunctions = require("../dist/neighbor-detector");
 const mainFunctions = require("../dist/main");
 
 const { traverse2dArray } = mainFunctions;
@@ -7,7 +7,7 @@ const [lookRight, , , lookDown] = neighborFunctions.neighborDetectorFunctions;
 const { neighborCounter } = neighborFunctions;
 
 describe("Given a create2dArray function", () => {
-  describe("When it receives a 3 as first parameter and second one", () => {
+  describe("When it receives a 3 as first parameter and a 4 second one", () => {
     test("Then it should return a 2d array with false", () => {
       const numberOfRows = 3;
       const numbersOfColumns = 4;
@@ -187,4 +187,4 @@ describe("Given a traverse2dArray function", () => {
       expect(traversedArray).toEqual(expectedArrayPattern);
     });
   });
-});
+}); */
