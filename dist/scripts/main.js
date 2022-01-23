@@ -118,7 +118,7 @@ const tick = () => {
   requestAnimationFrame(tick);
 };
 
-// tick();
+tick();
 
 /* module.exports.creade2dArray = create2dArray;
 module.exports.traverse2dArray = traverse2dArray; */
