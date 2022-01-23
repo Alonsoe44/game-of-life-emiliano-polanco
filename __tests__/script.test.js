@@ -187,5 +187,4 @@ describe("Given a traverse2dArray function", () => {
       expect(traversedArray).toEqual(expectedArrayPattern);
     });
   });
-});
- */
+}); */
