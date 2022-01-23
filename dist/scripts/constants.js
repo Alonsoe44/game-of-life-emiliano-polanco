@@ -1,8 +1,8 @@
-const constantColumns = 100;
-const constantRows = 100;
-const constantBoxSize = 4;
-const constantPrimaryColor = "white";
-const constantDeadColor = "black";
+const constantColumns = 10;
+const constantRows = 10;
+const constantBoxSize = 30;
+const constantPrimaryColor = "#3C787E";
+const constantDeadColor = "#D0CD94";
 
 export {
   constantRows,
