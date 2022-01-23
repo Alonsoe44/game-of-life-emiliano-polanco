@@ -1,6 +1,6 @@
-const constantColumns = 20;
-const constantRows = 20;
-const constantBoxSize = 20;
+const constantColumns = 100;
+const constantRows = 100;
+const constantBoxSize = 4;
 const constantPrimaryColor = "white";
 const constantDeadColor = "black";
 
