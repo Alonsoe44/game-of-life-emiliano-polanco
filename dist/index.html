@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mada:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
       rel="stylesheet"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,6 +21,22 @@
         <h1 class="presentation__tittle">The Game of Life</h1>
       </div>
       <div class="big-container big-container--information">
+        <div class="information-game">
+          <div class="text-group">
+            <p class="information-game__paragraph">
+              The Game of Life, is a cellular automaton devised by the British
+              mathematician John Horton Conway in 1970.
+            </p>
+            <p class="information-game__paragraph">
+              It its evolution is determined by its initial state,
+            </p>
+            <p class="information-game__paragraph">
+              Interact with the Game of Life by creating an initial
+              configuration and observing how it evolves.
+            </p>
+          </div>
+          <button class="information-game__button">Play</button>
+        </div>
         <canvas class="canvasGame canvas--user"></canvas>
       </div>
     </div>

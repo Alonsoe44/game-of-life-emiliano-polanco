@@ -41,6 +41,19 @@ class BoardPencil {
     }
   }
 
+  drawBoardGrid(inputBoard) {
+    // that axes wer inverted CAUTION
+    for (let i = 0; i < this.numberOfRows; i++) {
+      for (let j = 0; j < this.numberOfColumns; j++) {
+        if (inputBoard[i][j]) {
+          this.drawBorderSquare(j, i, this.primaryColor);
+        } else {
+          this.drawBorderSquare(j, i, this.deadColor);
+        }
+      }
+    }
+  }
+
   drawSquare(x, y, color) {
     this.context.fillStyle = color;
     this.context.fillRect(
@@ -49,7 +62,17 @@ class BoardPencil {
       this.boxsize,
       this.boxsize
     );
-    this.context.strokeStyle = "rgb(156, 156, 156)";
+  }
+
+  drawBorderSquare(x, y, color) {
+    this.context.fillStyle = color;
+    this.context.fillRect(
+      x * this.boxsize,
+      y * this.boxsize,
+      this.boxsize,
+      this.boxsize
+    );
+    this.context.strokeStyle = "white";
     this.context.strokeRect(
       x * this.boxsize,
       y * this.boxsize,
