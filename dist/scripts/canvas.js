@@ -24,14 +24,15 @@ class BoardPencil {
     this.myCanvas.height = this.numberOfRows * this.boxsize;
   }
 
-  drawBoard() {
+  drawBoard(inputBoard) {
     // that axes wer inverted CAUTION
     for (let i = 0; i < this.numberOfRows; i++) {
       for (let j = 0; j < this.numberOfColumns; j++) {
-        if (this.arrayBoard[i][j] === true) {
-          this.drawSquare(i, j, this.primaryColor);
+        if (inputBoard[i][j]) {
+          this.drawSquare(j, i, this.primaryColor);
+        } else {
+          this.drawSquare(j, i, this.deadColor);
         }
-        this.drawSquare(j, i, this.deadColor);
       }
     }
   }

@@ -17,7 +17,7 @@ const create2dArray = (rows, colums) => {
   for (let i = 0; i < rows; i++) {
     array2d[i] = [];
     for (let j = 0; j < colums; j++) {
-      array2d[i][j] = false;
+      array2d[i][j] = Math.random() >= 0.5;
     }
   }
   return array2d;
@@ -43,14 +43,12 @@ const selectReviveCell = (x, y, table, pencil) => {
 
 // Execution
 
-const gameArray = create2dArray(constantRows, constantColumns);
+let gameArray = create2dArray(constantRows, constantColumns);
 console.table(gameArray);
+
 const mainCanvas = document.querySelector(".game-view-port");
 const myPencil = new BoardPencil(mainCanvas, gameArray);
-myPencil.drawBoard();
-
-traverse2dArray(gameArray);
-
+myPencil.drawBoard(gameArray);
 // Event listeners
 
 window.addEventListener("mousemove", (event) => {
@@ -75,6 +73,23 @@ window.addEventListener("click", () => {
     gameArray[mouse.y][mouse.x] = true;
   }
 });
+
+// tick function
+const initialTime = Date.now();
+let iterationTime = 1000;
+const tick = () => {
+  const timePassed = Date.now() - initialTime;
+  if (timePassed > iterationTime) {
+    iterationTime += 1000;
+    gameArray = traverse2dArray(gameArray);
+    myPencil.drawBoard(gameArray);
+    console.log("magic");
+  }
+
+  requestAnimationFrame(tick);
+};
+
+tick();
 
 /* module.exports.creade2dArray = create2dArray;
 module.exports.traverse2dArray = traverse2dArray; */
